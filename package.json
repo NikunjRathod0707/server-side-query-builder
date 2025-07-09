@@ -1,0 +1,24 @@
+{
+  "name": "get-ssr-data-module",
+  "version": "1.0.0",
+  "description": "Reusable SSR module for filtering, sorting, and pagination",
+  "main": "index.js",
+  "keywords": [
+      "node",
+      "pagination",
+      "filter",
+      "sort",
+      "server-side",
+      "SSR",
+      "query-builder",
+      "express",
+      "mysql",
+      "postgresql"
+    ],
+  "author": "Nikunj Rathod",
+  "license": "MIT",
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/NikunjRathod0707/server-side-query-builder.git"
+  }
+}
