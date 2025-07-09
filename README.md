@@ -111,6 +111,56 @@ const getUsersWithFiltersDB = async ({ where, order, params, limit, offset }) =>
 
 ---
 
+## API Query Usage
+
+You can use this module to power RESTful API endpoints that support advanced querying via the frontend (e.g., MUI DataGrid or AG Grid).
+
+### 🔗 Example API Request
+
+```
+GET https://example.com/api?paginationModel={"page":1,"pageSize":10}&filterModel={"items":[{"field":"email","operator":"contains","value":"ben"}],"logicOperator":"and"}&sortModel=[{"field":"user_first_name","sort":"asc"}]
+```
+
+### 🧾 Query Parameters
+
+| Parameter         | Type       | Description                                                |
+|-------------------|------------|------------------------------------------------------------|
+| `paginationModel` | `object`   | Contains `page` (0-based) and `pageSize`                  |
+| `filterModel`     | `object`   | Array of filter rules with `field`, `operator`, and `value` |
+| `sortModel`       | `array`    | Array of sort objects with `field` and `sort` (`asc`, `desc`) |
+
+### 📋 Filter Operators Supported
+
+| Operator       | Meaning                                |
+|----------------|----------------------------------------|
+| `contains`     | Field contains value (`LIKE %value%`)  |
+| `equals`       | Field equals value                     |
+| `startsWith`   | Field starts with value (`LIKE value%`)|
+| `endsWith`     | Field ends with value (`LIKE %value`)  |
+| `isEmpty`      | Field is null or empty string          |
+| `isNotEmpty`   | Field is not null and not empty string |
+
+### ✅ Example Response
+
+```json
+{
+  "status": true,
+  "data": [
+    {
+      "user_id": 123,
+      "first_name": "Ben",
+      "email": "ben@example.com",
+      "roles": ["Agent"]
+    }
+  ],
+  "totalCount": 22
+}
+```
+
+> 🧠 Note: `field` should match your `fieldMap` keys. `page` starts at 0.
+
+---
+
 ## License
 
-MIT © 2024 Your Name
+MIT © 2025 Nikunj Rathod
