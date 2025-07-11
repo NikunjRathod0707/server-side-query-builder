@@ -1,22 +1,51 @@
 {
   "name": "get-ssr-data-module",
-  "version": "1.0.0",
-  "description": "Reusable SSR module for filtering, sorting, and pagination",
-  "main": "index.js",
+  "version": "1.0.6",
+  "description": "Universal SSR data fetcher with pagination, filtering, and sorting",
+  "main": "dist/index.js",
+  "types": "dist/index.d.ts",
+  "files": [
+    "dist"
+  ],
+  "scripts": {
+    "clean": "rimraf dist",
+    "copy-files": "copyfiles package.json README.md dist",
+    "build": "npm run clean && tsc && npm run copy-files",
+    "prepare": "npm run build",
+    "test": "jest",
+    "test:watch": "jest --watch",
+    "test:watchAll": "jest --watchAll",
+    "test:coverage": "jest --coverage"
+  },
+  "dependencies": {
+    "typescript": "^4.0.0"
+  },
+  "devDependencies": {
+    "@types/jest": "^27.5.2",
+    "copyfiles": "^2.4.1",
+    "jest": "^27.5.1",
+    "rimraf": "^6.0.1",
+    "ts-jest": "^27.1.5"
+  },
+  "jest": {
+    "preset": "ts-jest",
+    "testEnvironment": "node"
+  },
   "keywords": [
-      "node",
-      "pagination",
-      "filter",
-      "sort",
-      "server-side",
-      "SSR",
-      "query-builder",
-      "express",
-      "mysql",
-      "postgresql"
-    ],
+    "node",
+    "pagination",
+    "filter",
+    "sort",
+    "server-side",
+    "server-side rendering",
+    "SSR",
+    "query-builder",
+    "express",
+    "mysql",
+    "postgresql"
+  ],
   "author": "Nikunj Rathod",
-  "license": "MIT",
+  "license": "ISC",
   "repository": {
     "type": "git",
     "url": "https://github.com/NikunjRathod0707/server-side-query-builder.git"
